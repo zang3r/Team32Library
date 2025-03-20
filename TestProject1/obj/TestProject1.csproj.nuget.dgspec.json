@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alexzang/Downloads/LibraryWebServer/TestProject1/TestProject1.csproj": {}
+    "/Users/oliver/Projects/Team32Library/TestProject1/TestProject1.csproj": {}
   },
   "projects": {
-    "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/LibraryWebServer.csproj": {
+    "/Users/oliver/Projects/Team32Library/LibraryWebServer/LibraryWebServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/LibraryWebServer.csproj",
+        "projectUniqueName": "/Users/oliver/Projects/Team32Library/LibraryWebServer/LibraryWebServer.csproj",
         "projectName": "LibraryWebServer",
-        "projectPath": "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/LibraryWebServer.csproj",
-        "packagesPath": "/Users/alexzang/.nuget/packages/",
-        "outputPath": "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/obj/",
+        "projectPath": "/Users/oliver/Projects/Team32Library/LibraryWebServer/LibraryWebServer.csproj",
+        "packagesPath": "/Users/oliver/.nuget/packages/",
+        "outputPath": "/Users/oliver/Projects/Team32Library/LibraryWebServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexzang/.nuget/NuGet/NuGet.Config"
+          "/Users/oliver/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -81,21 +82,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/alexzang/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/oliver/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/alexzang/Downloads/LibraryWebServer/TestProject1/TestProject1.csproj": {
+    "/Users/oliver/Projects/Team32Library/TestProject1/TestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alexzang/Downloads/LibraryWebServer/TestProject1/TestProject1.csproj",
+        "projectUniqueName": "/Users/oliver/Projects/Team32Library/TestProject1/TestProject1.csproj",
         "projectName": "TestProject1",
-        "projectPath": "/Users/alexzang/Downloads/LibraryWebServer/TestProject1/TestProject1.csproj",
-        "packagesPath": "/Users/alexzang/.nuget/packages/",
-        "outputPath": "/Users/alexzang/Downloads/LibraryWebServer/TestProject1/obj/",
+        "projectPath": "/Users/oliver/Projects/Team32Library/TestProject1/TestProject1.csproj",
+        "packagesPath": "/Users/oliver/.nuget/packages/",
+        "outputPath": "/Users/oliver/Projects/Team32Library/TestProject1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/alexzang/.nuget/NuGet/NuGet.Config"
+          "/Users/oliver/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -107,8 +108,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/LibraryWebServer.csproj": {
-                "projectPath": "/Users/alexzang/Downloads/LibraryWebServer/LibraryWebServer/LibraryWebServer.csproj"
+              "/Users/oliver/Projects/Team32Library/LibraryWebServer/LibraryWebServer.csproj": {
+                "projectPath": "/Users/oliver/Projects/Team32Library/LibraryWebServer/LibraryWebServer.csproj"
               }
             }
           }
@@ -122,7 +123,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -169,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/alexzang/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/oliver/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
