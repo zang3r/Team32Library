@@ -1,7 +1,9 @@
 ﻿using LibraryWebServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 
 [assembly: InternalsVisibleTo( "TestProject1" )]
 namespace LibraryWebServer.Controllers
@@ -31,8 +33,14 @@ namespace LibraryWebServer.Controllers
         [HttpPost]
         public IActionResult CheckLogin( string name, int cardnum )
         {
-            // TODO: Fill in. Determine if login is successful or not.
             bool loginSuccessful = false;
+            using (Team32LibraryContext db = new Team32LibraryContext())
+            {
+                var query = from p in db.Patrons where p.Name == name && p.CardNum == cardnum
+                    select new {p.Name, p.CardNum};
+                if (query.Any())
+                    loginSuccessful = true;
+            }
 
             if ( !loginSuccessful )
             {
@@ -72,11 +80,25 @@ namespace LibraryWebServer.Controllers
         [HttpPost]
         public ActionResult AllTitles()
         {
-
-            // TODO: Implement
-
-            return Json( null );
-
+            using (Team32LibraryContext db = new Team32LibraryContext())
+            {
+                var query = from t in db.Titles
+                    join i in db.Inventory on t.Isbn equals i.Isbn into inv
+                    from allInv in inv.DefaultIfEmpty()
+                    join c in db.CheckedOut on allInv.Serial equals c.Serial into check
+                    from allCheck in check.DefaultIfEmpty()
+                    join p in db.Patrons on allCheck.CardNum equals p.CardNum into pats
+                    from allPats in pats.DefaultIfEmpty()
+                    select new
+                    {
+                        t.Isbn,
+                        t.Title,
+                        t.Author,
+                        serial = allInv == null ? null : (uint?)allInv.Serial,
+                        name = allPats == null ? "" : (string)allPats.Name
+                    };    
+                return Json(query.ToList());
+            }
         }
 
         /// <summary>
@@ -90,8 +112,20 @@ namespace LibraryWebServer.Controllers
         [HttpPost]
         public ActionResult ListMyBooks()
         {
-            // TODO: Implement
-            return Json( null );
+            using (Team32LibraryContext db = new Team32LibraryContext())
+            {
+                var query = from co in db.CheckedOut
+                    join pat in db.Patrons on co.CardNum equals pat.CardNum where pat.CardNum == (uint)card
+                    join inv in db.Inventory on co.Serial equals inv.Serial
+                    join title in db.Titles on inv.Isbn equals title.Isbn
+                    select new
+                    {
+                        title.Title,
+                        title.Author,
+                        inv.Serial,
+                    };
+                return Json(query.ToList());
+            }
         }
 
 
