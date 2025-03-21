@@ -140,8 +140,14 @@ namespace LibraryWebServer.Controllers
         [HttpPost]
         public ActionResult CheckOutBook( int serial )
         {
-            // You may have to cast serial to a (uint)
-
+            using (Team32LibraryContext db = new Team32LibraryContext())
+            {
+                CheckedOut co = new CheckedOut();
+                co.CardNum = (uint)card;
+                co.Serial = (uint)serial;
+                db.CheckedOut.Add(co);
+                db.SaveChanges();
+            }
 
             return Json( new { success = true } );
         }
@@ -156,7 +162,12 @@ namespace LibraryWebServer.Controllers
         [HttpPost]
         public ActionResult ReturnBook( int serial )
         {
-            // You may have to cast serial to a (uint)
+            using (Team32LibraryContext db = new Team32LibraryContext())
+            {
+                var query = from co in db.CheckedOut where co.Serial == serial && co.CardNum == (uint)card select co;
+                db.CheckedOut.RemoveRange(query);
+                db.SaveChanges();
+            }
 
             return Json( new { success = true } );
         }
